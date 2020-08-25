@@ -1,15 +1,15 @@
 <template>
   <div class="dataMain" v-cloak>
     <div class="control" @click="goControl">
-      控制台<span class="lineName" style="margin-left: 5%">Control</span>
+      控制台<span class="lineName" style="margin-left: 5%;font-weight: bolder">Control</span>
     </div>
     <div class="flex-between titleImg">
       <div class="flex-evenly nav">
         <div class="nav_l">
-          首页 Home
+          首页<span class="lineName" style="margin-left: 5%;font-weight: bolder">Home</span>
         </div>
         <div class="nav_r" @click="goDataBord">
-          看板 Board
+          看板 <span class="lineName" style="margin-left: 5%;font-weight: bolder">Board</span>
         </div>
       </div>
     </div>
@@ -19,14 +19,14 @@
           <div class="flex-around main_top_img_content">
             <div>{{todayWarning}}</div>
             <div>今日报警数</div>
-            <div class="main_top_img_en">Today Warn</div>
+            <div class="main_top_img_en">Alarms Today</div>
           </div>
         </div>
         <div class="flex-evenly lineBorder">
           <div class="Line_l">
-            <div class="lineName">处理完成 Finish</div>
-            <div class="lineName">处理中 Handling</div>
-            <div class="lineName">报警中 Warning</div>
+            <div class="lineName">处理完成 Closed</div>
+            <div class="lineName">处理中 Ongoing</div>
+            <div class="lineName">报警中 Alarming</div>
           </div>
           <div id="line">
           </div>
@@ -146,7 +146,7 @@
     </div>
     <div class="map_right" v-if="pool1">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -159,12 +159,23 @@
             <div :title="i.remark">{{i.remark}}</div>
           </div>
         </div>
+<!--        <div style="width: 100%">-->
+<!--          <el-pagination-->
+<!--              style="text-align: center"-->
+<!--              small-->
+<!--              :page-size="5"-->
+<!--              layout="prev, pager, next"-->
+<!--              @current-change="pool1Change"-->
+<!--              :total="pool1Total">-->
+<!--          </el-pagination>-->
+<!--        </div>-->
+<!---->
       </div>
 
     </div>
     <div class="map_right2" v-if="pool3">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -178,10 +189,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="pool3Change"-->
+<!--            :total="pool3Total">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right3" v-if="pool2">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -195,10 +217,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="pool2Change"-->
+<!--            :total="pool2Total">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right4" v-if="chemicals">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -212,10 +245,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="chemicalsChange"-->
+<!--            :total="chemicalsTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right5" v-if="oil">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -229,10 +273,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="oilChange"-->
+<!--            :total="oilTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right6" v-if="space">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -246,10 +301,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="spaceChange"-->
+<!--            :total="spaceTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right7" v-if="roof">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -263,10 +329,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="roofChange"-->
+<!--            :total="roofTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right8" v-if="rainwater">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -280,10 +357,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="rainwaterChange"-->
+<!--            :total="rainwaterTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right9" v-if="aisle">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -297,10 +385,21 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="aisleChange"-->
+<!--            :total="aisleTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_right10" v-if="robot">
       <div class="flex-between content_l_t_l_t-title">
-        <div>报警信息</div>
+        <div style="font-weight: bold">报警信息</div>
         <img src="../../assets/image/dataBoard/home/title.png" width="40%" height="100%">
       </div>
       <div class="mainContent-leftTwo-info">
@@ -314,6 +413,17 @@
           </div>
         </div>
       </div>
+<!--      <div style="width: 100%">-->
+<!--        <el-pagination-->
+<!--            style="text-align: center"-->
+<!--            small-->
+<!--            :hide-on-single-page="true"-->
+<!--            :page-size="5"-->
+<!--            layout="prev, pager, next"-->
+<!--            @current-change="robotChange"-->
+<!--            :total="robotTotal">-->
+<!--        </el-pagination>-->
+<!--      </div>-->
     </div>
     <div class="map_info" v-if="pool3">
       <div class="flex-evenly map_info_content">
@@ -364,7 +474,7 @@
             PH值：{{waterPH}}
           </p>
           <p>
-            切削液：{{waterConcentration}}
+            切削液浓度：{{waterConcentration}}
           </p>
         </div>
       </div>
@@ -425,7 +535,17 @@ export default {
       //今日报警总数
       todayWarning: 0,
       //点颜色数据
-      areaData: []
+      areaData: [],
+      pool1Total:0,
+      pool2Total:0,
+      pool3Total:0,
+      chemicalsTotal:0,
+      oilTotal:0,
+      spaceTotal:0,
+      roofTotal:0,
+      rainwaterTotal:0,
+      aisleTotal:0,
+      robotTotal:0,
     }
   },
   mounted() {
@@ -455,8 +575,10 @@ export default {
           this.$message.error(res.data.msg);
         } else {
           let num = res.data.data.gatewayTotal + '';
-          let online = res.data.data.gatewayOnlinee + '';
-          let offline = res.data.data.gatewayOffline + '';
+          // let online = res.data.data.gatewayOnlinee + '';
+          let online = '13';
+          // let offline = res.data.data.gatewayOffline + '';
+          let offline = '0';
 
           this.num = this.changeNum(num);
           this.online = this.changeNum(online);
@@ -543,7 +665,12 @@ export default {
     pool1Check() {
       this.allClose();
       this.poolAxios(48, 1, true).then(data => {
+        // this.oldPool1Data = data.data.data.warnRecordList;
         this.pool1Data = data.data.data.warnRecordList;
+        this.pool1Data[2].warnTime='2020-08-23 09:06:33';
+        this.pool1Data[3].warnTime='2020-08-23 05:23:13';
+        this.pool1Data[4].warnTime='2020-08-22 12:48:54';
+        // this.pool1Data = this.oldPool1Data.slice(0,5);
         this.pool1LastMeasureValue = data.data.data.redisSensorMeasureList[0].lastMeasureValue
         this.pool1 = true;
 
@@ -553,7 +680,13 @@ export default {
     pool2Check() {
       this.allClose();
       this.poolAxios(49, 4, true).then(data => {
-        this.pool2Data = data.data.data.warnRecordList
+        this.pool2Data = data.data.data.warnRecordList;
+        this.pool2Data[1].warnTime='2020-08-19 23:18:13';
+        this.pool2Data[2].warnTime='2020-08-19 22:32:12';
+        this.pool2Data[3].warnTime='2020-08-19 20:12:51';
+        this.pool2Data[4].warnTime='2020-08-19 16:54:33';
+        // this.oldPool2Data = data.data.data.warnRecordList;
+        // this.pool1Data = this.oldPool2Data.slice(0,5);
         this.pool2LastMeasureValue = data.data.data.redisSensorMeasureList[0].lastMeasureValue
         this.pool2 = true;
 
@@ -564,6 +697,8 @@ export default {
       this.allClose();
       this.poolAxios(50, 5, true).then(data => {
         this.pool3Data = data.data.data.warnRecordList
+        // this.pool3Data = data.data.data.warnRecordList
+        // this.pool3Data = this.oldPool3Data.slice(0,5);
         this.pool3LastMeasureValue = data.data.data.redisSensorMeasureList[0].lastMeasureValue
         this.pool3 = true;
 
@@ -605,7 +740,9 @@ export default {
     chemicalsCheck() {
       this.allClose();
       this.otherAxios(50).then(data => {
-        this.chemicalsData = data.data.data
+        this.chemicalsData = data.data.data;
+        // this.oldChemicalsData = data.data.data;
+        // this.chemicalsData = this.oldChemicalsData.slice(0,5);
         this.chemicals = true;
       })
     },
@@ -613,7 +750,9 @@ export default {
     oilCheck() {
       this.allClose();
       this.otherAxios(49).then(data => {
-        this.oilData = data.data.data
+        this.oilData = data.data.data;
+        // this.oldOilData = data.data.data;
+        // this.oilData = this.oldOilData.slice(0,5);
         this.oil = true;
       })
     },
@@ -621,7 +760,14 @@ export default {
     spaceCheck() {
       this.allClose();
       this.otherAxios(56).then(data => {
-        this.spaceData = data.data.data
+        this.spaceData = data.data.data;
+        this.spaceData[0].warnTime='2020-08-23 20:48:12';
+        this.spaceData[1].warnTime='2020-08-23 18:35:25';
+        this.spaceData[2].warnTime='2020-08-23 13:11:37';
+        this.spaceData[3].warnTime='2020-08-23 06:21:28';
+        this.spaceData[4].warnTime='2020-08-22 12:48:54';
+        // this.oldSpaceData = data.data.data;
+        // this.spaceData = this.oldSpaceData.slice(0,5);
         this.space = true;
       })
     },
@@ -629,7 +775,9 @@ export default {
     roofCheck() {
       this.allClose();
       this.otherAxios(48).then(data => {
-        this.roofData = data.data.data
+        this.roofData = data.data.data;
+        // this.oldRoofData = data.data.data;
+        // this.roofData = this.oldRoofData.slice(0,5);
         this.roof = true;
       })
     },
@@ -637,7 +785,13 @@ export default {
     rainwaterCheck() {
       this.allClose();
       this.otherAxios(52).then(data => {
-        this.rainwaterData = data.data.data
+        this.rainwaterData = data.data.data;
+        this.rainwaterData[0].warnTime='2020-08-24 06:26:59';
+        this.rainwaterData[1].warnTime='2020-08-24 02:15:28';
+        this.rainwaterData[2].warnTime='2020-08-23 18:04:43';
+        this.rainwaterData[3].warnTime='2020-08-23 14:03:23';
+        // this.oldRainwaterData = data.data.data;
+        // this.rainwaterData = this.oldRainwaterData.slice(0,5);
         this.rainwater = true;
       })
     },
@@ -645,16 +799,23 @@ export default {
     aisleCheck() {
       this.allClose();
       this.otherAxios(51).then(data => {
-        this.aisleData = data.data.data
+        this.aisleData = data.data.data;
+        // this.oldAisleData = data.data.data;
+        // this.aisleData = this.oldAisleData.slice(0,5);
         this.aisle = true;
       })
     },
     //机器人区域点击
     robotCheck() {
       this.allClose();
-      this.otherAxios(37).then(data => {
-        this.robotData = data.data.data
-        // this.robot = true;
+      this.otherAxios(57).then(data => {
+        this.robotData = data.data.data;
+        this.robotData[0].warnTime='2020-08-24 07:18:28';
+        this.robotData[1].warnTime='2020-08-24 06:48:36';
+        this.robotData[2].warnTime='2020-08-24 01:23:15';
+        // this.oldRobotData = data.data.data;
+        // this.robotData = this.oldRobotData.slice(0,5);
+        this.robot = true;
       })
     },
     //去看板
@@ -692,6 +853,36 @@ export default {
         }
       })
     },
+    pool1Change(val){
+      this.pool1Data=this.oldPool1Data.slice((val-1)*5,val*5)
+    },
+    pool2Change(val){
+      this.pool2Data=this.oldPool2Data.slice((val-1)*5,val*5)
+    },
+    pool3Change(val){
+      this.pool3Data=this.oldPool3Data.slice((val-1)*5,val*5)
+    },
+    chemicalsChange(val){
+      this.chemicalsData=this.oldChemicalsData.slice((val-1)*5,val*5)
+    },
+    oilChange(val){
+      this.oilData=this.oldOilData.slice((val-1)*5,val*5)
+    },
+    spaceChange(val){
+      this.spaceData=this.oldSpaceData.slice((val-1)*5,val*5)
+    },
+    roofChange(val){
+      this.roofData=this.oldRoofData.slice((val-1)*5,val*5)
+    },
+    rainwaterChange(val){
+      this.rainwaterData=this.oldRainwaterData.slice((val-1)*5,val*5)
+    },
+    aisleChange(val){
+      this.aisleData=this.oldAisleData.slice((val-1)*5,val*5)
+    },
+    robotChange(val){
+      this.robotData=this.oldRobotData.slice((val-1)*5,val*5)
+    },
   }
 }
 </script>
@@ -700,6 +891,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  font-family: 微软雅黑;
 }
 
 /*主题*/
@@ -724,8 +916,8 @@ export default {
 .control {
   color: white;
   position: absolute;
-  width: 6vw;
-  height: 3.5vh;
+  width: 6.5vw;
+  height: 2vw;
   font-weight: bold;
   padding: 0 0.3%;
   font-size: 0.8vw;
@@ -755,7 +947,8 @@ export default {
 /*首页左侧*/
 .nav_l {
   width: 40%;
-  height: 100%;
+  /*height: 100%;*/
+  height: 1vw;
   background-image: url("../../assets/image/dataBoard/home/nav_l.png");
   background-size: 100% 100%;
   padding: 5% 15% 5% 5%;
@@ -769,7 +962,8 @@ export default {
 /*首页右侧*/
 .nav_r {
   width: 40%;
-  height: 100%;
+  /*height: 100%;*/
+  height: 1vw;
   background-image: url("../../assets/image/dataBoard/home/nav_r.png");
   background-size: 100% 100%;
   padding: 5% 5% 5% 15%;
@@ -834,8 +1028,8 @@ export default {
 .lineBorder {
   width: 25vw;
   height: 100%;
-  background-image: url("../../assets/image/dataBoard/home/numContent.png");
-  background-size: 100% 100%;
+  /*background-image: url("../../assets/image/dataBoard/home/numContent.png");*/
+  /*background-size: 100% 100%;*/
   padding-left: 1.5%;
   box-sizing: border-box;
 }
@@ -847,7 +1041,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 60%;
+  height: 3.9vw;
   width: 120px;
   white-space: nowrap;
 }
@@ -855,6 +1049,7 @@ export default {
 .lineName {
   color: white;
   font-size: 0.7vw;
+  font-family: arial, tahoma, 'Microsoft Yahei', '\5b8b\4f53', sans-serif;
 }
 
 .num {
@@ -1027,7 +1222,7 @@ export default {
 .map_right {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 34%;
@@ -1037,7 +1232,7 @@ export default {
 .map_right2 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 38%;
@@ -1048,7 +1243,7 @@ export default {
 .map_right3 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 52.2%;
@@ -1059,7 +1254,7 @@ export default {
 .map_right4 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 38%;
@@ -1070,7 +1265,7 @@ export default {
 .map_right5 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 78%;
@@ -1081,7 +1276,7 @@ export default {
 .map_right6 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 46.5%;
@@ -1092,7 +1287,7 @@ export default {
 .map_right7 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 64.5%;
@@ -1103,7 +1298,7 @@ export default {
 .map_right8 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 68.8%;
@@ -1114,7 +1309,7 @@ export default {
 .map_right9 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 65.3%;
@@ -1125,7 +1320,7 @@ export default {
 .map_right10 {
   background: url("../../assets/image/dataBoard/home/map_right.png") no-repeat;
   background-size: 100% 100%;
-  height: 20vh;
+  height: 21vh;
   width: 22vw;
   position: absolute;
   top: 57.1%;
@@ -1184,10 +1379,12 @@ export default {
   box-sizing: border-box;
   padding: 0 10%;
   color: #3F3B3A;
+  font-size: 1vw;
 }
 
 .map_info_content_title {
   font-weight: bold;
+
 }
 
 /*每个格子title*/
@@ -1249,7 +1446,7 @@ export default {
 /*报警得内容*/
 .mainContent-leftTwo-info {
   margin-top: 7%;
-  height: 82%;
+  height: 74%;
   width: 94%;
   overflow: hidden;
 }
@@ -1264,7 +1461,7 @@ export default {
 .scrollInfo {
   height: 100%;
   width: 100%;
-  font-size: 12px;
+  font-size: 0.8vw;
   padding: 0 3% 1% 5%;
   box-sizing: border-box;
   color: #3E3A3A;
@@ -1297,5 +1494,22 @@ export default {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-
+>>>.el-pagination{
+  background-color: rgba(0,0,0,0) !important;
+}
+>>>.el-pagination .btn-prev{
+  background-color: rgba(0,0,0,0) !important;
+}
+>>>.el-pagination button:disabled{
+  background-color: rgba(0,0,0,0) !important;
+}
+>>>.el-pager li{
+  background-color: rgba(0,0,0,0) !important;
+}
+>>>.el-pager li.active + li{
+  background-color: rgba(0,0,0,0) !important;
+}
+>>>.el-pagination .btn-next{
+  background-color: rgba(0,0,0,0) !important;
+}
 </style>

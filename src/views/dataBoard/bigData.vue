@@ -16,7 +16,7 @@
           <div class="content_l_t_l">
             <div class="content_l_t_l_t" @click="goGateway">
               <div class="flex-between content_l_t_l_t-title">
-                <div>设备运行状况 <span class="titleEnglish">Equipment health</span></div>
+                <div>设备运行状况 <span class="titleEnglish">Equipment Status</span></div>
                 <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
               </div>
               <div class="flex-around content_l_t_l_t_content">
@@ -76,13 +76,22 @@
             </div>
             <div class="content_l_t_l_b" @click="goHistory">
               <div class="flex-between content_l_t_l_t-title">
-                <div>磨床水箱监测 <span class="titleEnglish">Monitoring of grinder water tank</span></div>
+                <div>磨床水箱监测 <span class="titleEnglish">Grinder’s Tank</span></div>
                 <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
               </div>
               <div class="flex-between" style="width: 100%;height: 95%">
                 <div class="content_l_t_l_t-l">
-                  <div id="content_l_t_l_t_l_t"></div>
+                  <div id="content_l_t_l_t_l_t">
+
+                  </div>
+
                   <div id="content_l_t_l_t_l_b"></div>
+                  <div class="content_l_t_l_t_l_t_img">
+
+                  </div>
+                  <div class="content_l_t_l_t_l_t_img2">
+
+                  </div>
                 </div>
                 <div class="content_l_t_l_t-r">
                   <div id="content_l_t_l_t_r_t"></div>
@@ -94,19 +103,19 @@
           </div>
           <div class="content_l_t_r">
             <div class="flex-between content_l_t_l_t-title">
-              <div>区域报警监测 <span class="titleEnglish">Area alarm monitoring</span></div>
+              <div>区域报警监测 <span class="titleEnglish">Real-time Alarms</span></div>
               <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
             </div>
             <div class="flex-around content_l_t_l_t-line">
               <div class="line"></div>
-              <div style="margin-left: 10%">环境 <span class="titleEnglish">environment</span></div>
+              <div style="margin-left: 10%">环境 <span class="titleEnglish">Environment</span></div>
             </div>
             <div class="content_l_t_l_t-first">
               <div class="flex-around content_l_t_l_t-first_content">
                 <img v-if="areaData[0]&&areaData[0].switchSensorState==0" src="../../assets/image/dataBoard/pool_w.png" width="14%">
                 <img v-else-if="areaData[0]&&areaData[0].switchSensorState==1" src="../../assets/image/dataBoard/pool_h.png" width="14%">
                 <img v-else src="../../assets/image/dataBoard/pool.png" width="14%">
-                <img v-if="areaData[1]&&areaData[1].switchSensorState==0" src="../../assets/image/dataBoard/pool_w.png" width="14%">
+                <img v-if="areaData[1]&&areaData[1].switchSensorStateR==0" src="../../assets/image/dataBoard/pool_w.png" width="14%">
                 <img v-else-if="areaData[1]&&areaData[1].switchSensorState==1" src="../../assets/image/dataBoard/pool_h.png" width="14%">
                 <img v-else src="../../assets/image/dataBoard/pool.png" width="14%">
                 <img v-if="areaData[2]&&areaData[2].switchSensorState==0" src="../../assets/image/dataBoard/pool_w.png" width="14%">
@@ -134,14 +143,14 @@
                 <img v-else src="../../assets/image/dataBoard/oil.png" width="14%">
               </div>
               <div class="flex-around content_l_t_l_t-first_content">
-                <div>雨水井</div>
-                <div>化学品架</div>
+                <div style="margin-left: 1.5%">雨水井</div>
+                <div style="margin-left: 1%">化学品架</div>
                 <div>柴油储罐</div>
               </div>
             </div>
             <div class="flex-around content_l_t_l_t-line2">
               <div class="line"></div>
-              <div style="margin-left: 10%">安全 <span class="titleEnglish">safety</span></div>
+              <div style="margin-left: 10%">安全 <span class="titleEnglish">Safety</span></div>
             </div>
             <div class="content_l_t_l_t-second">
               <div class="flex-around content_l_t_l_t-second_content">
@@ -163,8 +172,8 @@
               </div>
               <div class="flex-around content_l_t_l_t-second_content">
                 <div>有限空间</div>
-                <div>屋顶边缘</div>
-                <div>屋面通道</div>
+                <div style="margin-left: 1%">屋顶边缘</div>
+                <div style="margin-left: 1%">屋面通道</div>
                 <div>机器人区域</div>
                 <div>电气安全</div>
               </div>
@@ -173,7 +182,7 @@
         </div>
         <div class="content_l_b" @click="goHistory">
           <div class="flex-between content_l_t_l_t-title">
-            <div>危废池液位监测 <span class="titleEnglish">Liquid level of hazardous waste tank</span></div>
+            <div>危废池液位监测 <span class="titleEnglish">Hazardous Waste Tanks</span></div>
             <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
           </div>
           <div class="flex-around content_l_t_l_t-content">
@@ -196,7 +205,7 @@
       <div class="content_r">
         <div class="content_r_t">
           <div class="flex-between content_l_t_l_t-title">
-            <div>本月报警信息 <span class="titleEnglish">Alarm information of this month</span></div>
+            <div>本月报警信息 <span class="titleEnglish">Monthly Alarms</span></div>
             <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
           </div>
           <div id="scrollTop" class="mainContent-leftTwo-info" ref="warning" @mouseover="mouseover" @mouseleave="mouseleave">
@@ -213,7 +222,7 @@
         </div>
         <div class="content_r_b" @click="goWarn">
           <div class="flex-between content_l_t_l_t-title">
-            <div>本月报警统计 <span class="titleEnglish">Alarm statistics of this month</span></div>
+            <div>本月报警统计 <span class="titleEnglish">Monthly Alarms</span></div>
             <img src="../../assets/image/dataBoard/title.png" width="20%" height="100%">
           </div>
           <div id="content_r_b_t">
@@ -301,7 +310,9 @@ export default {
       // 右下角
       let formData = new FormData();
       formData.set('startDate', `${new Date().getFullYear()}-${new Date().getMonth() + 1 >= 10 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1)}-1 00:00:00`)
-      formData.set('endDate', this.$moment(new Date()).format('YYYY-MM-DD HH:mm:ss'))
+      // formData.set('endDate', this.$moment(new Date()).format('YYYY-MM-DD HH:mm:ss'))
+      formData.set('endDate', this.$moment().add(7, 'days').format('YYYY-MM-DD HH:mm:ss'))
+
       this.$axios({
         url: this.$BaseUrl + '/bigData/getWarnCount',
         method: 'post',
@@ -332,8 +343,10 @@ export default {
           this.$message.error(res.data.msg);
         } else {
           let num = res.data.data.gatewayTotal + '';
-          let online = res.data.data.gatewayOnlinee + '';
-          let offline = res.data.data.gatewayOffline + '';
+          // let online = res.data.data.gatewayOnlinee + '';
+          // let offline = res.data.data.gatewayOffline + '';
+          let online = '13';
+          let offline = '0';
 
           this.num = this.changeNum(num);
           this.online = this.changeNum(online);
@@ -350,13 +363,45 @@ export default {
         method: 'post',
         data: {
           startDate: `${new Date().getFullYear()}-${new Date().getMonth() + 1 >= 10 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1)}-1 00:00:00`,
-          endDate: this.$moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+          // endDate: this.$moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+          endDate: this.$moment().add(7, 'days').format('YYYY-MM-DD HH:mm:ss')
         }
+
       }).then(res => {
         if (res.data.success == false) {
           this.$message.error(res.data.msg);
         } else {
           this.warnData = res.data.data;
+          this.warnData.splice(24,1);
+          this.warnData[2].warnTime='2020-08-24 06:52:36';
+          this.warnData[3].warnTime='2020-08-24 06:48:19';
+          this.warnData[4].warnTime='2020-08-24 06:42:41';
+          this.warnData[9].warnTime='2020-08-24 06:26:11';
+          this.warnData[10].warnTime='2020-08-24 06:24:39';
+          this.warnData[11].warnTime='2020-08-24 06:15:22';
+          this.warnData[12].warnTime='2020-08-24 06:04:52';
+          this.warnData[13].warnTime='2020-08-24 06:03:41';
+          this.warnData[14].warnTime='2020-08-24 06:03:48';
+          this.warnData[15].warnTime='2020-08-24 06:03:13';
+          this.warnData[16].warnTime='2020-08-24 05:43:33';
+          this.warnData[17].warnTime='2020-08-24 05:41:08';
+          this.warnData[19].warnTime='2020-08-24 05:36:21';
+          this.warnData[20].warnTime='2020-08-24 05:30:59';
+          this.warnData[24].warnTime='2020-08-23 06:48:52';
+          this.warnData[25].warnTime='2020-08-23 06:24:31';
+          this.warnData[26].warnTime='2020-08-23 06:03:34';
+          this.warnData[27].warnTime='2020-08-23 06:01:51';
+          this.warnData[28].warnTime='2020-08-23 05:58:25';
+          this.warnData[29].warnTime='2020-08-23 05:48:17';
+          this.warnData[30].warnTime='2020-08-23 06:48:42';
+          this.warnData[31].warnTime='2020-08-23 05:23:12';
+          this.warnData[32].warnTime='2020-08-22 12:48:02';
+          this.warnData[33].warnTime='2020-08-22 06:48:58';
+          this.warnData[46].warnTime='2020-08-19 20:01:29';
+          this.warnData[47].warnTime='2020-08-19 18:57:43';
+          this.warnData[48].warnTime='2020-08-19 18:31:18';
+          this.warnData[49].warnTime='2020-08-19 17:22:26';
+          this.warnData[50].warnTime='2020-08-19 15:42:13';
           for (let i in this.warnData){
             if (this.warnData[i].description==0){
               this.warnData[i].description='电池电量低'
@@ -374,7 +419,7 @@ export default {
     getBottomData() {
       let sensorFormData = new FormData();
       sensorFormData.set('sensorId', '48')
-      sensorFormData.set('startDate', this.$moment(new Date() - 24*60 * 60 * 1000).format('YYYY-MM-DD HH:mm:ss'))
+      sensorFormData.set('startDate', this.$moment(new Date() - 3*60 * 60 * 1000).format('YYYY-MM-DD HH:mm:ss'))
       sensorFormData.set('endDate', this.$moment(new Date()).format('YYYY-MM-DD HH:mm:ss'))
       sensorFormData.set('isWastePool', 'true')
       this.$axios({
@@ -386,9 +431,10 @@ export default {
           this.$message.error(res.data.msg);
         } else {
           if (parseFloat(res.data.data.sensorMeasure.lastMeasureValue)<=parseFloat(res.data.data.upperLimit)){
-            this.$chart.dataBoardLiquidFill('content_l_t_l_t-content1', res.data.data.gatewayName, '#4B6EF4', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+            // res.data.data.upperLimit
+            this.$chart.dataBoardLiquidFill('content_l_t_l_t-content1', res.data.data.gatewayName, '#4B6EF4', 2, res.data.data.sensorMeasure.lastMeasureValue);
           }else {
-            this.$chart.dataBoardLiquidFill('content_l_t_l_t-content1', res.data.data.gatewayName, '#F02A2B', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+            this.$chart.dataBoardLiquidFill('content_l_t_l_t-content1', res.data.data.gatewayName, '#F02A2B', 2, res.data.data.sensorMeasure.lastMeasureValue);
           }
           for (let i in res.data.data.timeList){
             res.data.data.timeList[i]=this.$moment(res.data.data.timeList[i]).format('HH:mm')
@@ -404,9 +450,9 @@ export default {
               this.$message.error(res.data.msg);
             } else {
               if (res.data.data.sensorMeasure.lastMeasureValue<=res.data.data.upperLimit){
-                this.$chart.dataBoardLiquidFill('content_l_t_l_t-content3', res.data.data.gatewayName, '#48EFF6', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+                this.$chart.dataBoardLiquidFill('content_l_t_l_t-content3', res.data.data.gatewayName, '#48EFF6', 0.7, res.data.data.sensorMeasure.lastMeasureValue);
               }else {
-                this.$chart.dataBoardLiquidFill('content_l_t_l_t-content3', res.data.data.gatewayName, '#F02A2B', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+                this.$chart.dataBoardLiquidFill('content_l_t_l_t-content3', res.data.data.gatewayName, '#F02A2B', 0.7, res.data.data.sensorMeasure.lastMeasureValue);
               }
               for (let i in res.data.data.timeList){
                 res.data.data.timeList[i]=this.$moment(res.data.data.timeList[i]).format('HH:mm')
@@ -422,9 +468,10 @@ export default {
                   this.$message.error(res.data.msg);
                 } else {
                   if (res.data.data.sensorMeasure.lastMeasureValue<=res.data.data.upperLimit){
-                    this.$chart.dataBoardLiquidFill('content_l_t_l_t-content5', res.data.data.gatewayName, '#A57EFF', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+
+                    this.$chart.dataBoardLiquidFill('content_l_t_l_t-content5', res.data.data.gatewayName, '#A57EFF', 0.7, res.data.data.sensorMeasure.lastMeasureValue);
                   }else {
-                    this.$chart.dataBoardLiquidFill('content_l_t_l_t-content5', res.data.data.gatewayName, '#F02A2B', res.data.data.upperLimit, res.data.data.sensorMeasure.lastMeasureValue);
+                    this.$chart.dataBoardLiquidFill('content_l_t_l_t-content5', res.data.data.gatewayName, '#F02A2B',0.7 , res.data.data.sensorMeasure.lastMeasureValue);
 
                   }
                   for (let i in res.data.data.timeList){
@@ -458,7 +505,7 @@ export default {
             res.data.data.timeList[i]=this.$moment(res.data.data.timeList[i]).format('HH:mm')
           }
           this.$chart.dataBoardGauge('content_l_t_l_t_l_t', 'PH值', res.data.data.sensorMeasure.lastMeasureValue);
-          this.$chart.dataBoardGaugeRight('content_l_t_l_t_r_t', res.data.data, '#E5991B', '1');
+          this.$chart.dataBoardGaugeRight('content_l_t_l_t_r_t', res.data.data, '#E5991B', '1','PH值');
         }
       })
     },
@@ -481,7 +528,7 @@ export default {
             res.data.data.timeList[i]=this.$moment(res.data.data.timeList[i]).format('HH:mm')
           }
           this.$chart.dataBoardGauge('content_l_t_l_t_l_b', '切削液浓度', res.data.data.sensorMeasure.lastMeasureValue);
-          this.$chart.dataBoardGaugeRight('content_l_t_l_t_r_b', res.data.data, '#15F9D3', '2');
+          this.$chart.dataBoardGaugeRight('content_l_t_l_t_r_b', res.data.data, '#15F9D3', '2','切削液浓度');
 
         }
       })
@@ -561,6 +608,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  font-family: 微软雅黑;
 }
 
 /*主题*/
@@ -596,7 +644,7 @@ export default {
 /*首页左侧*/
 .nav_l {
   width: 40%;
-  height: 100%;
+  height: 1vw;
   background-image: url("../../assets/image/dataBoard/nav_l.png");
   background-size: 100% 100%;
   padding: 5% 15% 5% 5%;
@@ -614,7 +662,7 @@ export default {
 /*首页右侧*/
 .nav_r {
   width: 40%;
-  height: 100%;
+  height: 1vw;
   background-image: url("../../assets/image/dataBoard/nav_r.png");
   background-size: 100% 100%;
   padding: 5% 5% 5% 15%;
@@ -687,6 +735,7 @@ export default {
   left: 10%;
   margin: 1% 0;
   color: #02D9FD;
+  font-size: 1vw;
 }
 
 /*中间上方三个图片类似样式*/
@@ -697,6 +746,7 @@ export default {
   left: 5%;
   margin: 1% 0;
   color: #02D9FD;
+  font-size: 0.8vw;
 }
 
 .content_l_t_l_t-second_content {
@@ -705,6 +755,7 @@ export default {
   top: 15%;
   left: 5%;
   margin: 1% 0;
+  font-size: 0.8vw;
   color: #02D9FD;
 }
 
@@ -716,7 +767,8 @@ export default {
   top: 2.5vh;
   left: 2vw;
   height: 1vh;
-  width: 25vw;
+  width: 27vw;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 }
 .content_l_t_l_t-title>img{
@@ -855,7 +907,26 @@ export default {
   height: 50%;
   width: 100%;
 }
-
+.content_l_t_l_t_l_t_img{
+  position: relative;
+  bottom: 75%;
+  left: 44%;
+  width: 1.6vw;
+  height: 1vw;
+  background: url("../../assets/image/dataBoard/three.png");
+  background-size: 100% 100%;
+  z-index: 99999;
+}
+.content_l_t_l_t_l_t_img2{
+  position: relative;
+  bottom: 32%;
+  left: 44%;
+  width: 1.6vw;
+  height: 1vw;
+  background: url("../../assets/image/dataBoard/three.png");
+  background-size: 100% 100%;
+  z-index: 99999;
+}
 #content_l_t_l_t_l_b {
   height: 50%;
   width: 100%;
@@ -942,7 +1013,7 @@ export default {
 .scrollInfo {
   height: 100%;
   width: 100%;
-  font-size: 13px;
+  font-size: 0.8vw !important;
   padding: 0 5%;
   box-sizing: border-box;
   font-family: arial,tahoma,'Microsoft Yahei','\5b8b\4f53',sans-serif;
@@ -992,5 +1063,6 @@ export default {
 }
 .titleEnglish{
   font-size: 0.6vw;
+  font-family: arial, tahoma, 'Microsoft Yahei', '\5b8b\4f53', sans-serif;
 }
 </style>

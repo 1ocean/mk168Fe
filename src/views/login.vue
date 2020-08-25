@@ -2,17 +2,17 @@
     <div id="wrapper">
         <img class="bg" src="../assets/image/login/bg.jpg" alt="" width="100%" height="65%">
         <div class="flex-evenly logo">
-            <img src="../assets/image/home/mk168logo.jpg" height="100px" width="200px"/>
+            <img src="../assets/image/login/login.png" height="80%" width="200px"/>
             <span style="margin-top: 0px;">
                             HSE在线报警监控系统
             </span>
         </div>
-        <div class="phone">
-            服务热线：400-682-2950
-        </div>
-        <div class="bottom">
-            Copyright © 2014, All Rights Reserved.康明斯有限公司 苏ICP备14045726号-1
-        </div>
+<!--        <div class="phone">-->
+<!--            服务热线：400-682-2950-->
+<!--        </div>-->
+<!--        <div class="bottom">-->
+<!--            Copyright © 2014, All Rights Reserved.康明斯有限公司 苏ICP备14045726号-1-->
+<!--        </div>-->
         <el-card class="box-card">
             <div class="loginTitle">账号登录
             </div>

@@ -275,11 +275,14 @@ let install = function (Vue) {
                             tooltip: {
                                 trigger: 'item',
                                 formatter: '{b}：{d}%',
+                                textStyle: {
+                                    fontSize: 9
+                                }
                             },
                             series: [{
                                 type: 'pie',
                                 center: ['50%', '50%'],
-                                radius: ['30%', '55%'],
+                                radius: ['35%', '72%'],
                                 clockwise: true,
                                 avoidLabelOverlap: true,
                                 hoverOffset: 15,
@@ -294,6 +297,7 @@ let install = function (Vue) {
                                     show: true,
                                     position: 'outside',
                                     formatter: '{b}：{c}',
+                                    fontSize:9,
                                     rich: {
                                         hr: {
                                             backgroundColor: 't',
@@ -316,16 +320,16 @@ let install = function (Vue) {
                                     }
                                 },
                                 data: [{
-                                    'name': '危废池开井',
+                                    'name': '危废池',
                                     'value': data[0]
                                 }, {
-                                    'name': '雨水井水流',
+                                    'name': '雨水井',
                                     'value': data[1]
                                 }, {
-                                    'name': '化学品滴溅',
+                                    'name': '化学品架',
                                     'value': data[2]
                                 }, {
-                                    'name': '受限区域',
+                                    'name': '有限空间',
                                     'value': data[3]
                                 }, {
                                     'name': '机器人区域',
@@ -334,17 +338,14 @@ let install = function (Vue) {
                                     'name': '屋面通道',
                                     'value': data[5]
                                 }, {
-                                    'name': '屋面边缘',
+                                    'name': '屋顶边缘',
                                     'value': data[6]
                                 }, {
-                                    'name': '柴油储罐火焰',
+                                    'name': '柴油储罐',
                                     'value': data[7]
                                 }, {
-                                    'name': '用电安全',
+                                    'name': '电气安全',
                                     'value': data[8]
-                                }, {
-                                    'name': '低电压',
-                                    'value': data[9]
                                 }]
                             }]
                         };
@@ -357,7 +358,7 @@ let install = function (Vue) {
                             color: [
                                 "#257DFF",
                                 "#E3A03A",
-                                "#F02A2B",
+                                "rgb(245,97,97)",
                             ],
                             legend: {
                                 data: [{
@@ -374,17 +375,19 @@ let install = function (Vue) {
                                     }
                                 ],
                                 right: "4%",
-                                top: "4%",
+                                top: "1%",
+                                itemWidth: 8,
+                                itemHeight: 8,
                                 textStyle: {
                                     color: "#DFDFDF",
-                                    fontSize: 10
+                                    fontSize: 8
                                 }
                             },
                             grid: {
                                 left: "4%",
                                 right: "8%",
                                 bottom: "10%",
-                                top: "14%",
+                                top: "18%",
                                 containLabel: true
                             },
                             tooltip: {
@@ -408,7 +411,7 @@ let install = function (Vue) {
                                     "屋顶\n边缘",
                                     "屋面\n通道",
                                     "机器人\n区域",
-                                    "用电\n安全",
+                                    "电气\n安全",
                                 ],
                                 axisTick: {
                                     show: false
@@ -417,7 +420,7 @@ let install = function (Vue) {
                                     show: true,
                                     textStyle: {
                                         color: "#DFDFDF",
-                                        fontSize: 9
+                                        fontSize: 7
                                     },
                                     formatter: "{value}"
                                 },
@@ -506,13 +509,13 @@ let install = function (Vue) {
                             grid: {
                                 top: '18%',
                                 left: '15%',
-                                right: '5%',
+                                right: '8%',
                                 bottom: '25%',
                                 // containLabel: true
                             },
                             xAxis: [{
                                 type: 'category',
-                                boundaryGap: true,
+                                boundaryGap: false,
                                 axisLine: { //坐标轴轴线相关设置。数学上的x轴
                                     show: true,
                                     lineStyle: {
@@ -523,6 +526,7 @@ let install = function (Vue) {
                                     textStyle: {
                                         color: '#70C5FF',
                                         margin: 15,
+                                        fontSize:8
                                     },
 
                                 },
@@ -549,7 +553,7 @@ let install = function (Vue) {
                                     show: true,
                                     textStyle: {
                                         color: '#70C5FF',
-
+                                        fontSize:9
                                     },
                                     // formatter: function (value) {
                                     //     if (value === 0) {
@@ -626,30 +630,26 @@ let install = function (Vue) {
                     },
                     dataBoardLiquidFill(id, name, color, upperLimit, lastMeasureValue) {
                         this.chart = echarts.init(document.getElementById(id));
-                        //数值大小
-                        let max = 2; //满刻度大小
-                        let arr = 0.6
-                        let data = max * arr;
                         let option = {
                             title: [{
                                 top: '47%',
                                 left: 'center',
-                                text: lastMeasureValue ,
+                                text: lastMeasureValue,
                                 textStyle: {
                                     color: '#fff',
                                     fontStyle: 'normal',
                                     fontWeight: 'normal',
-                                    fontSize: '80%'
+                                    fontSize: '60%'
                                 },
                             }, {
-                                top: '20%',
+                                top: '10%',
                                 left: 'center',
                                 text: '液位上限：' + upperLimit,
                                 textStyle: {
                                     color: '#4CF9FF',
                                     fontStyle: 'normal',
                                     fontWeight: 'normal',
-                                    fontSize: '80%'
+                                    fontSize: '60%'
                                 },
                             },
                                 {
@@ -660,7 +660,7 @@ let install = function (Vue) {
                                         color: color,
                                         fontStyle: 'normal',
                                         fontWeight: 'normal',
-                                        fontSize: '80%'
+                                        fontSize: '60%'
                                     },
                                 }
                             ],
@@ -679,9 +679,9 @@ let install = function (Vue) {
                                 }
                             },
                             grid: {
-                                left:'28%',
+                                left: '28%',
                                 top: '40%',
-                                right:'28%',
+                                right: '28%',
                                 bottom: '1%',
                                 // containLabel:true
                             },
@@ -695,31 +695,7 @@ let install = function (Vue) {
                                         shadowColor: '#3B7BF8'
                                     }
                                 },
-                                color: [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    offset: 0,
-                                    color: "#4A87FF"
-                                },
-                                    {
-                                        offset: 1,
-                                        color: '#3B7BF8'
-                                    }
-                                ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    offset: 0,
-                                    color: "#4A87FF"
-                                },
-                                    {
-                                        offset: 1,
-                                        color: '#3B7BF8'
-                                    }
-                                ]), new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    offset: 0,
-                                    color: "#4A87FF"
-                                },
-                                    {
-                                        offset: 1,
-                                        color: '#3B7BF8'
-                                    }
-                                ])],
+                                color: 'black',
                                 data: [{
                                     value: (lastMeasureValue / upperLimit).toFixed(2),
                                     itemStyle: {
@@ -741,11 +717,11 @@ let install = function (Vue) {
                                 backgroundStyle: {
                                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                         offset: 0,
-                                        color: "#3A63E8"
+                                        color: 'rgb(36,48,76)'
                                     },
                                         {
                                             offset: 1,
-                                            color: '#3213AB'
+                                            color: 'rgb(36,48,76)'
                                         }
                                     ]),
                                 },
@@ -760,42 +736,100 @@ let install = function (Vue) {
                                 outline: {
                                     itemStyle: {
                                         borderColor: '#3F1EB9',
-                                        borderWidth: 2
+                                        borderWidth: 0
                                     },
                                     borderDistance: 0
                                 }
                             },
                                 {
-                                    data: [100, 100, 100, 100, 100, 100, 100],
-                                    type: 'line',
-                                    symbol: "none",
-                                }
+                                    type: 'liquidFill',
+                                    itemStyle: {
+                                        normal: {
+                                            opacity: 0.4,
+                                            shadowBlur: 0,
+                                            color: "#3B7BF8",
+                                            shadowColor: '#3B7BF8'
+                                        }
+                                    },
+                                    color: 'black',
+                                    data: [{
+                                        value: (0.55 / 10).toFixed(2),
+                                        itemStyle: {
+                                            normal: {
+                                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                                    offset: 0,
+                                                    color: 'red'
+                                                },
+                                                    {
+                                                        offset: 1,
+                                                        color: 'red'
+                                                    }
+                                                ]),
+                                                opacity: 1
+                                            }
+                                        }
+                                    }],
+                                    center: ['50%', '22%'],
+                                    backgroundStyle: {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                            offset: 0,
+                                            color: 'rgba(36,48,76,0)'
+                                        },
+                                            {
+                                                offset: 1,
+                                                color: 'rgba(36,48,76,0)'
+                                            }
+                                        ]),
+                                    },
+                                    label: {
+                                        show:false,
+                                        normal: {
+                                            formatter: '',
+                                            textStyle: {
+                                                fontSize: 12
+                                            }
+                                        }
+                                    },
+                                    outline: {
+                                        show:false,
+                                        itemStyle: {
+                                            borderColor: '#3F1EB9',
+                                            borderWidth: 0
+                                        },
+                                        borderDistance: 0
+                                    }
+                                },
+                                // {
+                                //     data: [100, 100, 100, 100, 100, 100, 100],
+                                //     type: 'line',
+                                //     symbol: "none",
+                                // }
                             ]
                         }
                         // option.series[0].data = data;
                         this.chart.setOption(option);
                     },
-                    dataBoardGauge(id,name,value) {
+                    dataBoardGauge(id, name, value) {
                         this.chart = echarts.init(document.getElementById(id));
                         let full;
-                        name=='PH值'?full=14:full=100;
+                        name == 'PH值' ? full = 14 : full = 100;
 
                         let option = {
                             title: [{
                                 text: value,
-                                x: 'center',
-                                y: 'center',
+                                top: '30%',
+                                left: 'center',
                                 textStyle: {
-                                    color:'#4CF9FF',
-                                    fontSize:'90%'
+                                    color: '#4CF9FF',
+                                    fontSize: '60%'
                                 }
                             }, {
                                 text: name,
                                 top: '80%',
                                 left: 'center',
                                 textStyle: {
-                                    color:'#4CF9FF',
-                                    fontSize:'90%'
+                                    color: '#4CF9FF',
+                                    fontSize: '60%'
                                 }
                             }],
                             series: [
@@ -907,13 +941,37 @@ let install = function (Vue) {
                         // option.series[0].data = data;
                         this.chart.setOption(option);
                     },
-                    dataBoardGaugeRight(id, data, color,type) {
-                        let full;
-                        type=='1'?full=14:full=100;
+                    dataBoardGaugeRight(id, data, color, type,name) {
+                        let fun, max, types, minInterval, interval,label,icon;
+                        if (type == '1') {
+                            max = 14;
+                            type = 'value';
+                            minInterval = 6;
+                            interval = 7;
+                            fun = [
+                                '{b}|{c}',
+                            ].join(',');
+                                label='{value} ';
+                            icon='image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKCAYAAAC5Sw6hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhBMTM2N0YyRTU0MDExRUE5NzUyQkZEQkU2N0M3NDg5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhBMTM2N0YzRTU0MDExRUE5NzUyQkZEQkU2N0M3NDg5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEExMzY3RjBFNTQwMTFFQTk3NTJCRkRCRTY3Qzc0ODkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEExMzY3RjFFNTQwMTFFQTk3NTJCRkRCRTY3Qzc0ODkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5lVo8OAAAAvUlEQVR42mI806XAgAMoA3EhENsCMRMQnwLiXiC+hk0xCw5DHIF4ExDzIInpAHE0EMcD8Up0DUxYDBEE4jVohsAAOxAvAGIFYgyKAmIhBtyAA4hTsHltGhCLIIkZMhAGsUCshsT/BjJoOhCzIQnmAbEKAYMuAnEnEv8vyKDLaIoWA3EcAYNAYXiWUBjtAeLteAw5AcTLiAlsEAiDRvF/NPFtQOwDxH+ITUdfgDgCiOuB2BKq7jQ0bLACgAADAOZJHTJQnPJNAAAAAElFTkSuQmCC'
+
+                        } else {
+                            max = 20;
+                            type = 'value';
+                            minInterval = 6;
+                            interval = 5;
+                            fun = [
+                                '{b}|{c}%',
+                            ].join(',');
+                            label='{value}%';
+                            icon='image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAKCAYAAABWiWWfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhDQTcxQjVERTU0MDExRUE4M0I2REY4RTcyMDY0OTc5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhDQTcxQjVFRTU0MDExRUE4M0I2REY4RTcyMDY0OTc5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OENBNzFCNUJFNTQwMTFFQTgzQjZERjhFNzIwNjQ5NzkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OENBNzFCNUNFNTQwMTFFQTgzQjZERjhFNzIwNjQ5NzkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5Mtvt9AAAAyUlEQVR42mIUfX2SAQdgA+J0IA4CYikgfgDES4F4CRD/w6aBBYdBXEC8G4itkMTUgNgNiH2BOAKI/6JrYsJhWC+aQcggBIhLsUkwYvEmNxC/BWJ2BtzgCRDLYvNmABBHIYnxETAIBGSAeC2aVyeBDDsBxI+RBEGB7U7AMJAhnWiG3QcZ9gKKYeAsEN8FYmU8hh0E4lPERgAogP/jkPsFxBXYJHAZth6I44D4A5r4c2jSOE1sbDKgRYYLEIsB8SMg3gfEP3ApBggwAFy7J6GEEAYLAAAAAElFTkSuQmCC'
+
+                        }
+
                         this.chart = echarts.init(document.getElementById(id));
                         let option = {
                             tooltip: {
                                 trigger: 'axis',
+                                formatter: fun,
                                 axisPointer: {
                                     lineStyle: {
                                         color: {
@@ -938,11 +996,24 @@ let install = function (Vue) {
                                 },
 
                             },
+                            legend: {
+                                show: true,
+                                x: 'center',
+                                y: 'bottom',
+                                icon:icon,
+                                itemWidth: 20,
+                                itemHeight: 10,
+                                textStyle: {
+                                    color: color,
+                                    fontSize:9
+                                },
+                                data: [name]
+                            },
                             grid: {
-                                top: '25%',
+                                top: '20%',
                                 left: '15%',
                                 right: '10%',
-                                bottom: '15%',
+                                bottom: '40%',
                                 // containLabel: true
                             },
                             xAxis: [{
@@ -959,6 +1030,7 @@ let install = function (Vue) {
                                     textStyle: {
                                         color: '#70C5FF',
                                         margin: 15,
+                                        fontSize:8
                                     },
 
                                 },
@@ -968,8 +1040,10 @@ let install = function (Vue) {
                                 data: data.timeList
                             }],
                             yAxis: [{
-                                min: 0,
-                                max: full,
+                                max: max,
+                                type: types,
+                                minInterval: minInterval,
+                                interval: interval, //每次增加几个
                                 splitLine: {
                                     show: true,
                                     lineStyle: {
@@ -987,17 +1061,17 @@ let install = function (Vue) {
                                     show: true,
                                     textStyle: {
                                         color: '#70C5FF',
-
+                                        fontSize:8
                                     },
-
+                                    formatter: label
                                 },
                                 axisTick: {
                                     show: false,
                                 },
                             }],
                             series: [{
+                                name:name,
                                 type: 'line',
-
                                 showAllSymbol: true,
                                 // symbol: 'none',  //这句就是去掉点的
                                 smooth: true,  //这句就是让曲线变平滑的
@@ -1061,14 +1135,15 @@ let install = function (Vue) {
                         let option = {
 
                             grid: {
-                                top: '15%',
+                                top: '5%',
                                 left: '0%',
-                                right: '15%',
-                                bottom: '10%',
-                                // containLabel: true
+                                right: '18%',
+                                bottom: '0%',
+                                containLabel: true
                             },
                             xAxis: {
                                 type: 'value',
+                                boundaryGap: false,
                                 splitLine: {show: false},
                                 axisTick: {show: false},
                                 axisLine: {show: false},
@@ -1086,14 +1161,16 @@ let install = function (Vue) {
                                 axisLabel: {
                                     show: false,
                                     color: '#fff',
+
                                 },
+
                                 nameLocation: "middle",
                             },
                             series: [
                                 {
                                     type: 'bar',
                                     barWidth: 5,
-                                    barGap:'100%',
+                                    barGap: '100%',
                                     itemStyle: {
                                         normal: {
                                             color: function (params) {
@@ -1111,7 +1188,7 @@ let install = function (Vue) {
                                         normal: {
                                             show: true,
                                             position: 'right',
-                                            formatter: '{c} 个'
+                                            formatter: '{c} '
                                         },
 
                                     },
